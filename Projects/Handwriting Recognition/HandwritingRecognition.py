@@ -38,5 +38,3 @@ print("Testing single image")
 classifications = model.predict(x_test)
 
 print(classifications[a])
-
-#%%

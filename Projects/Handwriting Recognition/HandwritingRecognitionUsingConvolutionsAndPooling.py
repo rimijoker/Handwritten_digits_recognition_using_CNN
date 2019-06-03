@@ -52,5 +52,3 @@ classifications = model.predict(x_test)
 
 print(classifications[SingleTestImageIndex])
 print(y_test[SingleTestImageIndex])
-
-#%%
