@@ -3,7 +3,7 @@ import tensorflow as tf
 print(tf.__version__)
 class myCallback(tf.keras.callbacks.Callback):
   def on_epoch_end(self, epoch, logs={}):
-    if(logs.get('acc')>0.999):
+    if(logs.get('acc')>0.9999):
       print("\nReached 99% accuracy so cancelling training!")
       self.model.stop_training = True
 mnist = tf.keras.datasets.mnist
@@ -33,12 +33,12 @@ model = tf.keras.models.Sequential([
 ])
 model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
 model.summary()
-model.fit(x_train, y_train, epochs=5, callbacks=[callbacks])
+model.fit(x_train, y_train, epochs=100, callbacks=[callbacks])
 model.evaluate(x_test,y_test)
 
 (x_train, y_train),(x_test, y_test) = mnist.load_data()
-
-SingleTestImageIndex = 999
+#%%
+SingleTestImageIndex = 9999
 plt.imshow(x_test[SingleTestImageIndex])
 plt.show()
 print("Testing single image")
